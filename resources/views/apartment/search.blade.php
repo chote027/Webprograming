@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Apartment GO</h2>
+    <h2 class="page-section-heading text-center text-uppercase text-black mb-0">Apartment GO</h2>
     <div class="divider-custom">
     </div>
     @if(!empty($place))
