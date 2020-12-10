@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Apartment;
 use Illuminate\Http\Request;
+use App\Models\Room;
 
 class DetailController extends Controller
 {
@@ -46,9 +47,10 @@ class DetailController extends Controller
      */
     public function show($id)
     {
-        $data = Apartment::where('apartment_name', '=', $id)->get();
-        //dd($data);
-        return view('apartment.detail', compact('data'));
+        $data = Apartment::where('id_no', '=', $id)->get();
+        $room = Room::where('owner_id', '=', $id)->where('tel', '=', 0)->get();
+        $room_available = count($room);
+        return view('apartment.detail', compact('data', 'room_available'));
     }
 
     /**

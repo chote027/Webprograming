@@ -13,6 +13,7 @@
             </div>
             <div class="card-footer bg-light">
                 <h5 class="card-text">จำนวนห้องพักทั้งหมด {{$u->no_room}} ห้อง</h5>
+                <h5 class="card-text">จำนวนห้องพักว่าง {{$room_available}} ห้อง</h5>
                 <h5 class="card-text">ค่าเช่าห้องต่อเดือน {{$u->rent_month}} บาท</h5>
             </div>
         </div>
