@@ -2,65 +2,78 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-10 mb-2">
-    @if ($room_count < $no_room) 
-        <a href="{{ url('/addroom/add_roomnumber/create') }}" class="btn btn-primary">Add room number</a>
-
-        <table class="table" style="margin-top: 2rem;">
+        @if ($room_count <= $no_room) <table class="table" style="margin-top: 2rem;">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Room Number</th>
                     <th scope="col">Owner Name</th>
                     <th scope="col">Telephone Number</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Add/Edit</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($room_data as $r)
+                @foreach($room_data as $r)
                 <tr>
                     <td scope="row">{{$r->room_no}}</td>
                     <td>{{$r->room_owner_fname}}</td>
                     <td>{{$r->tel}}</td>
                     @if($r->tel === 0)
-                    <td class="table-success">ห้องว่าง</td>
+                    <td>
+                        <div class="p-2 bg-success text-white">ห้องว่าง</div>
+                    </td>
                     @else
-                    <td class="table-danger">ห้องมีเจ้าของ</td>
+                    <td>
+                        <div class="p-2 bg-danger text-white">ห้องมีเจ้าของ</div>
+                    </td>
                     @endif
+                    @php
+                    $data = $r->room_no;
+                    @endphp
+                    <td><a href="{{route('addroom.edit',$data)}}" class="btn btn-info" role="button">Add/Edit</a></td>
                 </tr>
-            @endforeach
+                @endforeach
             </tbody>
-        </table>
+            </table>
     </div>
-        @else
-        <a href="{{ url('/addroom/add_roomnumber/create') }}" class="btn btn-primary">Add room number</a>
-
-        <table class="table" style="margin-top: 2rem;">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Room Number</th>
-                    <th scope="col">Owner Name</th>
-                    <th scope="col">Telephone Number</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
+    @else
+    <a href="{{ url('/addroom/add_roomnumber/create') }}" class="btn btn-primary">Add room number</a>
+    <table class="table" style="margin-top: 2rem;">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Room Number</th>
+                <th scope="col">Owner Name</th>
+                <th scope="col">Telephone Number</th>
+                <th scope="col">Status</th>
+                <th scope="col">Add/Edit</th>
+            </tr>
+        </thead>
+        <tbody>
             @foreach($room_data as $r)
-                <tr>
-                    <td scope="row">{{$r->room_no}}</td>
-                    <td>{{$r->room_owner_fname}}</td>
-                    <td>{{$r->tel}}</td>
-                    @if($r->tel === 0)
-                    <td class="table-success">ห้องว่าง</td>
-                    @else
-                    <td class="table-danger">ห้องมีเจ้าของ</td>
-                    @endif
-                    <td>{{$r->tel}}</td>
-                </tr>
+            <tr>
+                <td scope="row">{{$r->room_no}}</td>
+                <td>{{$r->room_owner_fname}}</td>
+                <td>{{$r->tel}}</td>
+                @if($r->tel === 0)
+                <td>
+                    <div class="p-2 bg-success text-white">ห้องว่าง</div>
+                </td>
+                @else
+                <td>
+                    <div class="p-2 bg-danger text-white">ห้องมีเจ้าของ</div>
+                </td>
+                @endif
+                @php
+                $data = $r->roomno;
+                @endphp
+                <td><a href="{{route('addroom.edit',$data)}}" class="btn btn-info" role="button">Add/Edit</a></td>
+            </tr>
             @endforeach
-            </tbody>
-        </table>
-        @endif
+        </tbody>
+    </table>
+    @endif
 </div>
-        
+
 @endsection
 <style>
     #item {
@@ -77,5 +90,20 @@
 
     .card-title {
         color: #086CFC;
+    }
+
+    table {
+        border: 1px solid black;
+    }
+
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    tr,
+    th,
+    td {
+        text-align: center;
     }
 </style>

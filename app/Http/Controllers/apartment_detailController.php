@@ -6,6 +6,7 @@ use App\Models\Apartment;
 use Illuminate\Http\Request;
 use App\Models\Apartment_Details;
 use App\Models\Room;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class apartment_detailController extends Controller
 {
@@ -107,7 +108,8 @@ class apartment_detailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Room::where('room_no', '=', $id)->get();
+        return view('user.edit_roomer', compact('data'));
     }
 
     /**
@@ -119,13 +121,37 @@ class apartment_detailController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request);
         $request->validate([
-            'room_no'=>'required'
+            'room_no' => 'required',
+            'room_owner_fname' => 'required',
+            'room_owner_lname' => 'required',
+            'tel' => 'required',
+            'room_owner_id_no' => 'required',
+            'rent_month' => 'required',
+            'elect_cost' => 'required',
+            'water_cost' => 'required',
+            'others' => 'required',
+            'roomate' => 'required',
         ]);
-        
-        Apartment_Details::create([
+        Room::find($id)->update([
             'room_no' => $request['room_no'],
+            'room_owner_fname' => $request['room_owner_fname'],
+            'room_owner_lname' => $request['room_owner_lname'],
+            'tel' => $request['tel'],
+            'room_owner_id_no' => $request['room_owner_id_no'],
+            'rent_month' => $request['rent_month'],
+            'elect_cost' => $request['elect'],
+            'water_cost' => $request['water'],
+            'others' => $request['others'],
+            'roomate' => $request['roomate'],
         ]);
+
+        $data = Apartment_Details::select('apartment_name')->value('apartment_name');
+        $room_data = Room::all();
+
+        return view('user.dashboard',compact('room_count','no_room','data','room_data'));
+        // return redirect('/dashboard');
     }
 
     /**
