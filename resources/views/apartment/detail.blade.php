@@ -6,7 +6,7 @@
         <img class="img-fluid" id="item" src="{{asset('uploads/'.$u->image)}}" alt="" />
     </div>
     <div class="col-8 col-md-7" style="padding-left:3rem">
-        <div class="card">
+        <div class="card bg-light mb-3">
             <div class="card-body">
                 <h1 class="card-title">{{$u->apartment_name}}</h1>
                 <h5 class="card-text">คำอธิบายเพิ่มเติม {{$u->apartment_desc}}</h3>

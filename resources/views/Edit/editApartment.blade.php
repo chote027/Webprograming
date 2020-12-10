@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">{{ __('Edit Apartment') }}</div>
+            <div class="card bg-light mb-3">
+                <div class="card-header text-white bg-primary mb-3">{{ __('Edit Apartment') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('Apartment.update',$data[0]->id) }}" enctype="multipart/form-data">  

@@ -72,6 +72,7 @@ class apartmentController extends Controller
         ]);
 
         Room::create([
+            'owner_id' => $request['id_no'],
             'room_no' => $request['room_no'],
             'room_owner_fname'=>'',
             'room_owner_lname'=>'',

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Apartment GO</h2>
+    <h2 class="page-section-heading text-center text-uppercase text-black mb-0">Apartment GO</h2>
     <form class="form-inline mr-auto" action="{{ url('/search') }}">
         @csrf
         <input name="apartment_address" class="form-control mr-sm-2" type="text" placeholder="ค้นหาสถานที่ของหอพัก" aria-label="Search">

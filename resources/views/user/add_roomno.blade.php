@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Add Room Number') }}</div>
+            <div class="card bg-light mb-3">
+                <div class="card-header text-white bg-primary mb-3">{{ __('Add Room Number') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ url('/addroom') }}">
