@@ -80,8 +80,6 @@ class apartment_detailController extends Controller
             'roomate' => '',
         ]);
         
-        // $room = Apartment_Details::select('room_no')->where('owner_id', '=', $owner_id)->get();
-        // $room_count = count($room);
         $room_count = Apartment_Details::where('owner_id', '=', $owner_id)->count();
         $no_room = Apartment_Details::select('no_room')->value('no_room');
 
