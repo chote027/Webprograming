@@ -52,7 +52,6 @@ class roomController extends Controller
         // $room_count = $room->count();
         $room_count = Apartment_Details::where('owner_id', '=', $id)->count();
         $no_room = Apartment_Details::select('no_room')->value('no_room');
-        // $no_room = Apartment_Details::select('no_room')->value('no_room');
 
         $data = Apartment_Details::select('apartment_name')->value('apartment_name');
         $room_data = Room::all();
