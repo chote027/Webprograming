@@ -32,7 +32,10 @@ Route::resource('/Detail/create','App\Http\Controllers\DetailController');
 Route::get('/search', 'App\Http\Controllers\searchController@search');
 
 Route::get('/editeProfile', 'App\Http\Controllers\editController@editProfile');
-// Route::get('/editApartment', 'App\Http\Controllers\editController@editApartment');
 Route::get('/editApartment/{id}',[editController::class,'editApartment']);
 
-//Route::get('/editApartment/editform/{id}',[editController::class,'updateApartment']);
+Route::resource('/addroom','App\Http\Controllers\apartment_detailController');
+Route::resource('/addroom/add_roomnumber','App\Http\Controllers\apartment_detailController');
+
+Route::resource('/dashboard','App\Http\Controllers\roomController');
+Route::resource('/dashboard/show','App\Http\Controllers\roomController');

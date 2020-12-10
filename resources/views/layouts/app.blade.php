@@ -25,7 +25,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/Apartment') }}">
                     <!-- {{ config('app.name', 'Laravel') }} -->
-                    Home
+                    ApartmentGO
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -61,9 +61,9 @@
                                 $data = Auth::user()->id_no;
                                 @endphp
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <!-- <a class="dropdown-item" href="{{ url('/editProfile',$data)}}">
-                                        {{ __('Edit Profile') }}
-                                    </a> -->
+                                    <a class="dropdown-item" href="{{ url('/dashboard/show/'.$data)}}">
+                                        {{ __('View Apartment') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{route('Apartment.edit',$data)}}">
                                     <!-- <a class="dropdown-item" href={{"editApartment/".$data}}> -->
                                         {{ __('Edit Apartment') }}

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Apartment;
+use App\Models\Apartment_Details;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class apartmentController extends Controller
@@ -45,7 +48,6 @@ class apartmentController extends Controller
             'apartment_desc'=>'required',
             'no_room'=>'required',
             'rent_month'=>'required'
-
         ]);
 
         $fileName = time().'.'.$request->image->extension();
@@ -61,7 +63,27 @@ class apartmentController extends Controller
             'no_room' => $request['no_room'],
             'rent_month' => $request['rent_month'],
         ]);
+        
+        Apartment_Details::create([
+            'owner_id' => $request['id_no'],
+            'apartment_name' => $request['apartment_name'],
+            'no_room' => $request['no_room'],
+            'room_no' => $request['room_no'],
+        ]);
 
+        Room::create([
+            'room_no' => $request['room_no'],
+            'room_owner_fname'=>'',
+            'room_owner_lname'=>'',
+            'tel'=> 0,
+            'room_owner_id_no'=>'',
+            'rent_month' => $request['rent_month'],
+            'elect_cost'=> 0,
+            'water_cost'=> 0,
+            'others'=> 0,
+            'roomate'=> '',
+        ]);
+            
         return redirect('/Apartment');
     }
 
@@ -122,6 +144,7 @@ class apartmentController extends Controller
             'no_room' => $request['no_room'],
             'rent_month' => $request['rent_month'],
         ]);
+
         return redirect('/home');
     }
 
