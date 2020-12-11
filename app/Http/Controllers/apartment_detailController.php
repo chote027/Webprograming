@@ -69,15 +69,15 @@ class apartment_detailController extends Controller
         Room::create([
             'owner_id' => $owner_id,
             'room_no' => $request['room_no'],
-            'room_owner_fname' => '',
-            'room_owner_lname' => '',
+            'room_owner_fname' => '-',
+            'room_owner_lname' => '-',
             'tel' => 0,
-            'room_owner_id_no' => '',
+            'room_owner_id_no' => '-',
             'rent_month' => $rent_month,
             'elect_cost' => 0,
             'water_cost' => 0,
             'others' => 0,
-            'roomate' => '',
+            'roomate' => '-',
         ]);
         
         $room_count = Apartment_Details::where('owner_id', '=', $owner_id)->count();
@@ -122,18 +122,18 @@ class apartment_detailController extends Controller
     public function update(Request $request, $id)
     {
         //dd($request);
-        $request->validate([
-            'room_no' => 'required',
-            'room_owner_fname' => 'required',
-            'room_owner_lname' => 'required',
-            'tel' => 'required',
-            'room_owner_id_no' => 'required',
-            'rent_month' => 'required',
-            'elect_cost' => 'required',
-            'water_cost' => 'required',
-            'others' => 'required',
-            'roomate' => 'required',
-        ]);
+        // $request->validate([
+        //     'room_no' => 'required',
+        //     'room_owner_fname' => 'required',
+        //     'room_owner_lname' => 'required',
+        //     'tel' => 'required',
+        //     'room_owner_id_no' => 'required',
+        //     'rent_month' => 'required',
+        //     'elect_cost' => 'required',
+        //     'water_cost' => 'required',
+        //     'others' => 'required',
+        //     'roomate' => 'required',
+        // ]);
         Room::find($id)->update([
             'room_no' => $request['room_no'],
             'room_owner_fname' => $request['room_owner_fname'],

@@ -61,7 +61,7 @@
                                 $data = Auth::user()->id_no;
                                 @endphp
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/dashboard/show/'.$data)}}">
+                                    <a class="dropdown-item" href="{{ url('/dashboard/'.$data)}}">
                                         {{ __('View Apartment') }}
                                     </a>
                                     <a class="dropdown-item" href="{{route('Apartment.edit',$data)}}">
