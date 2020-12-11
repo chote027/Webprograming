@@ -44,7 +44,7 @@
                 </table>
             </div>
             <div class="card-footer bg-light text-center">
-                <a href="{{ url('/home') }}" class="btn btn-primary">Send</a>
+                <a href="{{ url('/Apartment') }}" class="btn btn-primary">Send</a>
             </div>
             <!-- ภาษาไทย  
                 <h1 class="card-title">ห้องที่ {{$rd->room_no}}</h1>

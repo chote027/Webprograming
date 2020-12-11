@@ -17,7 +17,11 @@
                 <h5 class="card-text">ค่าเช่าห้องต่อเดือน {{$u->rent_month}} บาท</h5>
             </div>
         </div>
+        
     </div>
+    <div class ="text-left" style="padding-left:2rem">
+            <a href="{{ url('/Apartment') }}" class="btn btn-primary">Back</a>
+        </div>
 </div>
 </div>
 @endforeach
@@ -37,7 +41,6 @@
     }
 
     .card-title {
-        color:#086CFC;
+        color: #086CFC;
     }
-    
 </style>
