@@ -43,6 +43,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="card-footer bg-light text-center">
+                <a href="{{ url('/home') }}" class="btn btn-primary">Send</a>
+            </div>
             <!-- ภาษาไทย  
                 <h1 class="card-title">ห้องที่ {{$rd->room_no}}</h1>
                 <table class="table table-bordered" style="margin-top: 2rem;">
@@ -81,8 +84,6 @@
                         </tr>
                     </tbody>
                 </table> -->
-            <div class="card-footer bg-light">
-            </div>
         </div>
         @endforeach
     </div>
@@ -106,4 +107,20 @@
     .card-title {
         color: #086CFC;
     }
+
+    /* table.center {
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    td {
+        text-align: center;
+        background-color: white;
+    }
+
+    tr,
+    th {
+        text-align: center;
+    } */
 </style>

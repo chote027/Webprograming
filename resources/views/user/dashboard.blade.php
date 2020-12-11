@@ -6,7 +6,7 @@
         @if ($room_count < $no_room) 
             <a href="{{ route('dashboard.create') }}" class="btn btn-primary">Add room number</a>
             @else
-            <a href="{{ url('/dashboard/add_roomnumber/create') }}" class="btn btn-secondary disabled" aria-pressed="true">Add room number</a>
+            <a href="{{ route('dashboard.create') }}" class="btn btn-secondary disabled" aria-pressed="true">Add room number</a>
             @endif
             <table class="table table-bordered" style="margin-top: 2rem;">
                 <thead class="bg-primary text-white">
