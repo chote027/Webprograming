@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="tel" class="col-md-4 col-form-label text-md-right">{{ __('Tel') }}</label>
+                            <label for="tel" class="col-md-4 col-form-label text-md-right">{{ __('Telephone Number') }}</label>
 
                             <div class="col-md-6">
                                 <input id="tel" type="text" class="form-control @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" maxlength="10" required autocomplete="tel" autofocus>
