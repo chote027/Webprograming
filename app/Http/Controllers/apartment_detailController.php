@@ -55,17 +55,8 @@ class apartment_detailController extends Controller
             'room_no' => $request['room_no'],
         ]);
 
-        // $room_owner_fname = Room::select('room_owner_fname')->value('room_owner_fname');
-        // $room_owner_lname = Room::select('room_owner_lname')->value('room_owner_lname');
-        // $tel = Room::select('tel')->value('tel');
-        // $room_owner_id_no = Room::select('room_owner_id_no')->value('room_owner_id_no');
-        // $room_owner_fname = Room::select('room_owner_fname')->value('room_owner_fname');
         $rent_month = Room::select('rent_month')->value('rent_month');
-        // $elect_cost = Room::select('elect_cost')->value('elect_cost');
-        // $water_cost = Room::select('water_cost')->value('water_cost');
-        // $others = Room::select('others')->value('others');
-        // $roomate = Room::select('roomate')->value('roomate');
-
+        
         Room::create([
             'owner_id' => $owner_id,
             'room_no' => $request['room_no'],
@@ -97,7 +88,13 @@ class apartment_detailController extends Controller
      */
     public function show($id)
     {
-        //
+        $room_count = Apartment_Details::where('owner_id', '=', $id)->count();
+        $no_room = Apartment_Details::select('no_room')->value('no_room');
+
+        $data = Apartment_Details::select('apartment_name')->value('apartment_name');
+        $room_data = Room::all();
+
+        return view('user.dashboard',compact('room_count','no_room','room_data', 'data'));
     }
 
     /**
@@ -147,14 +144,9 @@ class apartment_detailController extends Controller
             'roomate' => $request['roomate'],
         ]);
 
-        $room_count = Apartment_Details::where('owner_id', '=', $id)->count();
-        $no_room = Apartment_Details::select('no_room')->value('no_room');
+        $owner = Apartment_Details::select('owner_id')->value('owner_id');
 
-        $data = Apartment_Details::select('apartment_name')->value('apartment_name');
-        $room_data = Room::all();
-
-        return view('user.dashboard',compact('room_count','no_room','room_data', 'data'));
-        // return redirect('/dashboard');
+        return redirect('/dashboard/'.$owner);
     }
 
     /**

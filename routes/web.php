@@ -35,9 +35,7 @@ Route::get('/editeProfile', 'App\Http\Controllers\editController@editProfile');
 Route::get('/editApartment/{id}',[editController::class,'editApartment']);
 // Route::get('/editRoom/{id}',[editController::class,'editRoom']);
 
-Route::resource('/addroom','App\Http\Controllers\apartment_detailController');
-Route::resource('/addroom/add_roomnumber','App\Http\Controllers\apartment_detailController');
-// Route::resource('addroom.update','App\Http\Controllers\apartmentController');
+Route::resource('/dashboard','App\Http\Controllers\apartment_detailController');
 
-Route::resource('/dashboard','App\Http\Controllers\roomController');
-Route::resource('/dashboard/show','App\Http\Controllers\roomController');
+Route::resource('/addroom','App\Http\Controllers\roomController');
+// Route::resource('/dashboard/show','App\Http\Controllers\roomController');

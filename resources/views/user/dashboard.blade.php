@@ -3,9 +3,10 @@
 <h2 class="page-section-heading text-center text-uppercase text-black mb-0">{{$data}}</h2>
 <div class="row justify-content-center">
     <div class="col-10 mb-2">
-        @if ($room_count < $no_room) <a href="{{ url('/addroom/add_roomnumber/create') }}" class="btn btn-primary">Add room number</a>
+        @if ($room_count < $no_room) 
+            <a href="{{ route('dashboard.create') }}" class="btn btn-primary">Add room number</a>
             @else
-            <a href="{{ url('/addroom/add_roomnumber/create') }}" class="btn btn-secondary disabled" aria-pressed="true">Add room number</a>
+            <a href="{{ url('/dashboard/add_roomnumber/create') }}" class="btn btn-secondary disabled" aria-pressed="true">Add room number</a>
             @endif
             <table class="table table-bordered" style="margin-top: 2rem;">
                 <thead class="bg-primary text-white">
@@ -15,6 +16,7 @@
                         <th scope="col">Telephone Number</th>
                         <th scope="col">Status</th>
                         <th scope="col">Add/Edit</th>
+                        <th scope="col">Bill</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +37,7 @@
                         @php
                         $data = $r->room_no;
                         @endphp
-                        <td><a href="{{route('addroom.edit',$data)}}" class="btn btn-info" role="button">Add/Edit</a></td>
+                        <td><a href="{{route('dashboard.edit',$data)}}" class="btn btn-info" role="button">Add/Edit</a></td>
                     </tr>
                     @endforeach
                 </tbody>
