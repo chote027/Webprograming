@@ -38,6 +38,7 @@
                         $data = $r->room_no;
                         @endphp
                         <td><a href="{{route('dashboard.edit',$data)}}" class="btn btn-info" role="button">Add/Edit</a></td>
+                        <td><a href="{{route('addroom.show',$data)}}" class="btn btn-info" role="button">Send</a></td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -9,7 +9,7 @@
         <div class="card bg-light mb-3">
             <div class="card-body">
                 <h1 class="card-title">{{$u->apartment_name}}</h1>
-                <h5 class="card-text">คำอธิบายเพิ่มเติม {{$u->apartment_desc}}</h3>
+                <h3 class="card-text">คำอธิบายเพิ่มเติม {{$u->apartment_desc}}</h3>
             </div>
             <div class="card-footer bg-light">
                 <h5 class="card-text">จำนวนห้องพักทั้งหมด {{$u->no_room}} ห้อง</h5>

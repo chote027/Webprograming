@@ -95,15 +95,19 @@ class roomController extends Controller
      */
     public function show($id)
     {
-        // $room = Apartment_Details::select('room_no')->where('owner_id', '=', $id)->get();
-        // $room_count = $room->count();
-        $room_count = Apartment_Details::where('owner_id', '=', $id)->count();
-        $no_room = Apartment_Details::select('no_room')->value('no_room');
+        //$room_count = Apartment_Details::where('owner_id', '=', $id)->count();
+        //$no_room = Apartment_Details::select('no_room')->value('no_room');
 
-        $data = Apartment_Details::select('apartment_name')->value('apartment_name');
-        $room_data = Room::all();
+        //$data = Apartment_Details::select('apartment_name')->value('apartment_name');
+        $rn = Room::where('room_no', '=', $id)->value('room_no');
+        $owner_name = Room::where('room_no', '=', $id)->value('room_owner_fname');
+        $rent_cost = Room::where('room_no', '=', $id)->value('rent_month');
+        $elect_cost = Room::where('room_no', '=', $id)->value('elect_cost');
+        $water_cost = Room::where('room_no', '=', $id)->value('water_cost');
+        $others_cost = Room::where('room_no', '=', $id)->value('others');
+        $total_cost = $rent_cost + $elect_cost + $water_cost + $others_cost;
 
-        return view('user.dashboard', compact('room_count', 'no_room', 'room_data', 'data'));
+        return view('user.bill', compact('rn', 'owner_name', 'total_cost'));
     }
 
     /**
