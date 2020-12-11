@@ -99,15 +99,14 @@ class roomController extends Controller
         //$no_room = Apartment_Details::select('no_room')->value('no_room');
 
         //$data = Apartment_Details::select('apartment_name')->value('apartment_name');
-        $rn = Room::where('room_no', '=', $id)->value('room_no');
-        $owner_name = Room::where('room_no', '=', $id)->value('room_owner_fname');
+        $room_data = Room::select('*')->where('room_no', '=', $id)->get();
         $rent_cost = Room::where('room_no', '=', $id)->value('rent_month');
         $elect_cost = Room::where('room_no', '=', $id)->value('elect_cost');
         $water_cost = Room::where('room_no', '=', $id)->value('water_cost');
         $others_cost = Room::where('room_no', '=', $id)->value('others');
         $total_cost = $rent_cost + $elect_cost + $water_cost + $others_cost;
 
-        return view('user.bill', compact('rn', 'owner_name', 'total_cost'));
+        return view('user.bill', compact('total_cost','room_data'));
     }
 
     /**
