@@ -74,15 +74,15 @@ class apartmentController extends Controller
         Room::create([
             'owner_id' => $request['id_no'],
             'room_no' => $request['room_no'],
-            'room_owner_fname'=>'',
-            'room_owner_lname'=>'',
+            'room_owner_fname'=>'-',
+            'room_owner_lname'=>'-',
             'tel'=> 0,
-            'room_owner_id_no'=>'',
+            'room_owner_id_no'=>'-',
             'rent_month' => $request['rent_month'],
             'elect_cost'=> 0,
             'water_cost'=> 0,
             'others'=> 0,
-            'roomate'=> '',
+            'roomate'=> '-',
         ]);
             
         return redirect('/Apartment');

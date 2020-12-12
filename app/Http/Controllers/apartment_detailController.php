@@ -6,6 +6,7 @@ use App\Models\Apartment;
 use Illuminate\Http\Request;
 use App\Models\Apartment_Details;
 use App\Models\Room;
+use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class apartment_detailController extends Controller
@@ -105,7 +106,8 @@ class apartment_detailController extends Controller
      */
     public function edit($id)
     {
-        $data = Room::where('room_no', '=', $id)->get();
+        $owner = Auth::user()->id_no;   
+        $data = Room::where('owner_id', '=', $owner)->where('room_no', '=', $id)->get();
         return view('user.edit_roomer', compact('data'));
     }
 
@@ -131,7 +133,9 @@ class apartment_detailController extends Controller
         //     'others' => 'required',
         //     'roomate' => 'required',
         // ]);
-        Room::find($id)->update([
+        $owner = Auth::user()->id_no;   
+        
+        Room::where('owner_id','=', $owner)->find($id)->update([
             'room_no' => $request['room_no'],
             'room_owner_fname' => $request['room_owner_fname'],
             'room_owner_lname' => $request['room_owner_lname'],
@@ -143,8 +147,6 @@ class apartment_detailController extends Controller
             'others' => $request['others'],
             'roomate' => $request['roomate'],
         ]);
-
-        $owner = Apartment_Details::select('owner_id')->value('owner_id');
 
         return redirect('/dashboard/'.$owner);
     }
