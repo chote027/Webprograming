@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Apartment_Details;
+use Illuminate\Support\Facades\Auth;
 
 class roomController extends Controller
 {
@@ -41,10 +42,11 @@ class roomController extends Controller
         $request->validate([
             'room_no' => 'required',
         ]);
-
-        $owner_id = Apartment_Details::select('owner_id')->value('owner_id');
-        $apartment_name = Apartment_Details::select('apartment_name')->value('apartment_name');
-        $no_room = Apartment_Details::select('no_room')->value('no_room');
+        
+        $id = Auth::user()->id_no;
+        $owner_id = Apartment_Details::select('owner_id')->where('owner_id', '=', $id)->value('owner_id');
+        $apartment_name = Apartment_Details::select('apartment_name')->where('owner_id', '=', $owner_id)->value('apartment_name');
+        $no_room = Apartment_Details::select('no_room')->where('owner_id', '=', $owner_id)->value('no_room');
 
         Apartment_Details::create([
             'owner_id' => $owner_id,
@@ -79,10 +81,10 @@ class roomController extends Controller
         ]);
 
         $room_count = Apartment_Details::where('owner_id', '=', $owner_id)->count();
-        $no_room = Apartment_Details::select('no_room')->value('no_room');
+        $no_room = Apartment_Details::select('no_room')->where('owner_id', '=', $owner_id)->value('no_room');
 
-        $data = Apartment_Details::select('apartment_name')->value('apartment_name');
-        $room_data = Room::all();
+        $data = Apartment_Details::select('apartment_name')->where('owner_id', '=', $owner_id)->value('apartment_name');
+        $room_data = Room::all()->where('owner_id', '=', $owner_id);
 
         return view('user.dashboard', compact('room_count', 'no_room', 'data', 'room_data'));
     }
