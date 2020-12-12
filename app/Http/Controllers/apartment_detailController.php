@@ -89,7 +89,7 @@ class apartment_detailController extends Controller
     public function show($id)
     {
         $room_count = Apartment_Details::where('owner_id', '=', $id)->count();
-        $no_room = Apartment_Details::select('no_room')->value('no_room');
+        $no_room = Apartment_Details::select('no_room')->where('owner_id', '=', $id)->value('no_room');
 
         $data = Apartment_Details::select('apartment_name')->where('owner_id', '=', $id)->value('apartment_name');
         $room_data = Room::all()->where('owner_id', '=', $id);
