@@ -91,8 +91,7 @@ class apartment_detailController extends Controller
         $room_count = Apartment_Details::where('owner_id', '=', $id)->count();
         $no_room = Apartment_Details::select('no_room')->value('no_room');
 
-        $data = Apartment_Details::select('apartment_name')->value('apartment_name');
-        //$room_data = Room::all();
+        $data = Apartment_Details::select('apartment_name')->where('owner_id', '=', $id)->value('apartment_name');
         $room_data = Room::all()->where('owner_id', '=', $id);
 
         return view('user.dashboard',compact('room_count','no_room','room_data', 'data'));
