@@ -9,18 +9,18 @@
         <div class="card bg-light mb-3">
             <div class="card-body">
                 <h1 class="card-title">{{$u->apartment_name}}</h1>
-                <h3 class="card-text">คำอธิบายเพิ่มเติม {{$u->apartment_desc}}</h3>
+                <h4 class="card-text">{{$u->apartment_desc}}</h4>
             </div>
             <div class="card-footer bg-light">
-                <h5 class="card-text">จำนวนห้องพักทั้งหมด {{$u->no_room}} ห้อง</h5>
-                <h5 class="card-text">จำนวนห้องพักว่าง {{$room_available}} ห้อง</h5>
-                <h5 class="card-text">ค่าเช่าห้องต่อเดือน {{$u->rent_month}} บาท</h5>
+                <h5 class="card-text">Number of Rooms {{$u->no_room}} ห้อง</h5>
+                <h5 class="card-text">Availabel Rooms {{$room_available}} ห้อง</h5>
+                <h5 class="card-text">Rooms Rate {{$u->rent_month}} บาท</h5>
             </div>
         </div>
         
     </div>
     <div class ="text-left" style="padding-left:2rem">
-            <a href="{{ url('/Apartment') }}" class="btn btn-primary">Back</a>
+            <a href="{{ URL::previous() }}" class="btn btn-primary">Back</a>
         </div>
 </div>
 </div>

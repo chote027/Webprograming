@@ -15,7 +15,7 @@
                     <div class="card-body" style="width: 22rem;">
                         <h5 class="card-title">{{$u->apartment_name}}</h5>
                         <p class="card-text" style="white-space: normal;">{{$u->apartment_desc}}</p>
-                        <a href="{{url('/Detail/create',$u->apartment_name)}}" class="btn btn-primary">ดูรายละเอียด</a>
+                        <a href="{{url('/Detail/create',$u->id_no)}}" class="btn btn-primary">Show Detail</a>
                     </div>
                 </div>
             </div>

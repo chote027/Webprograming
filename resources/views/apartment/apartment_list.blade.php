@@ -4,8 +4,8 @@
     <h2 class="page-section-heading text-center text-uppercase text-black mb-0">Apartment GO</h2>
     <form class="form-inline mr-auto" action="{{ url('/search') }}">
         @csrf
-        <input name="apartment_address" class="form-control mr-sm-2" type="text" placeholder="ค้นหาสถานที่ของหอพัก" aria-label="Search">
-        <button class="btn btn-primary btn-rounded btn-sm my-0" type="submit">ค้นหา</button>
+        <input name="apartment_address" class="form-control mr-sm-2" type="text" placeholder="Searching for Apartment" aria-label="Search">
+        <button class="btn btn-primary btn-rounded btn-sm my-0" type="submit">Search</button>
     </form>
     <div class="divider-custom">
     </div>
@@ -18,7 +18,7 @@
                     <div class="card-body" style="width: 22rem;">
                         <h5 class="card-title">{{$u->apartment_name}}</h5>
                         <p class="card-text" style="white-space: normal;">{{$u->apartment_desc}}</p>
-                        <a href="{{url('/Detail/create',$u->id_no)}}" class="btn btn-primary">ดูรายละเอียด</a>
+                        <a href="{{url('/Detail/create',$u->id_no)}}" class="btn btn-primary">Show Detail</a>
                     </div>
                 </div>
             </div>
