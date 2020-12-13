@@ -12,9 +12,9 @@
                 <h4 class="card-text">{{$u->apartment_desc}}</h4>
             </div>
             <div class="card-footer bg-light">
-                <h5 class="card-text">Number of Rooms {{$u->no_room}} ห้อง</h5>
-                <h5 class="card-text">Available Rooms {{$room_available}} ห้อง</h5>
-                <h5 class="card-text">Rooms Rate {{$u->rent_month}} บาท</h5>
+                <h5 class="card-text">Number of Rooms {{$u->no_room}} Rooms</h5>
+                <h5 class="card-text">Available Rooms {{$room_available}} Rooms</h5>
+                <h5 class="card-text">Rooms Rate {{$u->rent_month}} Baht</h5>
             </div>
         </div>
         
