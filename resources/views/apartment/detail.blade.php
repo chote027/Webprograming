@@ -13,7 +13,7 @@
             </div>
             <div class="card-footer bg-light">
                 <h5 class="card-text">Number of Rooms {{$u->no_room}} ห้อง</h5>
-                <h5 class="card-text">Availabel Rooms {{$room_available}} ห้อง</h5>
+                <h5 class="card-text">Available Rooms {{$room_available}} ห้อง</h5>
                 <h5 class="card-text">Rooms Rate {{$u->rent_month}} บาท</h5>
             </div>
         </div>

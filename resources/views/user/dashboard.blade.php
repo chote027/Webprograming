@@ -27,11 +27,11 @@
                         <td>{{$r->tel}}</td>
                         @if($r->tel === 0)
                         <td>
-                            <div class="p-2 bg-success text-white">ห้องว่าง</div>
+                            <div class="p-2 bg-success text-white">Available</div>
                         </td>
                         @else
                         <td>
-                            <div class="p-2 bg-danger text-white">ห้องมีเจ้าของ</div>
+                            <div class="p-2 bg-danger text-white">Rented</div>
                         </td>
                         @endif
                         @php
