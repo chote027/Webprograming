@@ -146,7 +146,7 @@ class apartmentController extends Controller
             'rent_month' => $request['rent_month'],
         ]);
 
-        return redirect('/home');
+        return redirect('/Apartment');
     }
 
     /**
